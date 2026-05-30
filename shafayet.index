@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shafayet Zamil — Shopify Expert & WordPress Expert specializing in Shopify, WordPress, Elementor, email flow, and template design.">
+<title>Shafayet Zamil | Shopify & WordPress Expert</title>
+
+<link rel="icon" type="image/png" href="https://smoggy-scarlet-zpgz9axxvy.edgeone.app/Shafayet%20Zamil.png">
+<link rel="apple-touch-icon" href="https://smoggy-scarlet-zpgz9axxvy.edgeone.app/Shafayet%20Zamil.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #0d0d0d;
+    --bg2: #141414;
+    --bg3: #1c1c1c;
+    --border: rgba(255,255,255,0.07);
+    --text: #f2ede6;
+    --muted: #7a7570;
+    --accent: #1dbf73;
+    --gold: #e8c97a;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(29,191,115,.35);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9997;
+    opacity: .55;
+  }
+
+  .bg-orb {
+    position: fixed;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(10px);
+    opacity: .55;
+    animation: orbFloat 10s ease-in-out infinite alternate;
+  }
+
+  .bg-orb--one {
+    width: 320px;
+    height: 320px;
+    top: 8%;
+    right: -80px;
+    background: radial-gradient(circle, rgba(29,191,115,.16), transparent 70%);
+  }
+
+  .bg-orb--two {
+    width: 260px;
+    height: 260px;
+    bottom: 10%;
+    left: -80px;
+    background: radial-gradient(circle, rgba(29,191,115,.10), transparent 70%);
+    animation-delay: 1.5s;
+  }
+
+  @keyframes orbFloat {
+    from {
+      transform: translate3d(0,0,0) scale(1);
+    }
+    to {
+      transform: translate3d(30px,-35px,0) scale(1.08);
+    }
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    padding: 30px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(29,191,115,.12), transparent 28%),
+      rgba(13,13,13,.96);
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    transition: transform .35s ease, opacity .25s ease;
+  }
+
+  nav.menu-hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text);
+    letter-spacing: .01em;
+  }
+
+  .nav-logo-tag {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    letter-spacing: .18em;
+    margin-top: 6px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s, transform .2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: #0d0d0d !important;
+    padding: 15px 32px;
+    border-radius: 3px;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
+    transition: background .2s, transform .15s, box-shadow .2s !important;
+  }
+
+  .nav-cta:hover {
+    background: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(29,191,115,.18);
+  }
+
+  .sticky-work-pill,
+  .sticky-menu-pill {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -24px) scale(.96);
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 999px;
+    text-decoration: none;
+    backdrop-filter: blur(18px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+
+  .sticky-work-pill.is-visible,
+  .sticky-menu-pill.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  .sticky-work-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 320px;
+    justify-content: center;
+    padding: 10px 26px 10px 12px;
+    background:
+      radial-gradient(circle at 90% 50%, rgba(29,191,115,.18), transparent 35%),
+      rgba(13,13,13,.96);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 18px 48px rgba(0,0,0,.35);
+  }
+
+  .sticky-work-pill:hover,
+  .sticky-menu-pill:hover {
+    transform: translate(-50%, 0) scale(1.02);
+  }
+
+  .sticky-work-pill img,
+  .sticky-menu-pill img {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+  }
+
+  .sticky-work-pill span {
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+    color: var(--text);
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    background: #16d66f;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(22,214,111,.12);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .sticky-menu-pill {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 10px 12px 10px 14px;
+    background:
+      radial-gradient(circle at 90% 50%, rgba(29,191,115,.18), transparent 35%),
+      rgba(13,13,13,.96);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 18px 48px rgba(0,0,0,.35);
+  }
+
+  .sticky-menu-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .sticky-menu-links a {
+    text-decoration: none;
+    color: rgba(242,237,230,.72);
+    font-size: 20px;
+    font-weight: 400;
+    transition: color .2s ease, transform .2s ease;
+  }
+
+  .sticky-menu-links a:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .sticky-hire {
+    background: var(--accent);
+    color: #0d0d0d !important;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    white-space: nowrap;
+  }
+
+  .sticky-hire:hover {
+    background: #fff;
+    color: #0d0d0d !important;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding: 170px 52px 90px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 70px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -160px;
+    right: -80px;
+    width: 580px;
+    height: 580px;
+    border: 1px solid rgba(29,191,115,.10);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: slowSpin 18s linear infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: 0;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(ellipse, rgba(29,191,115,.08) 0%, transparent 70%);
+    pointer-events: none;
+    animation: softPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes slowSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes softPulse {
+    0%, 100% {
+      opacity: .55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(29,191,115,.08);
+    border: 1px solid rgba(29,191,115,.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    letter-spacing: .05em;
+    animation: fadeUp .7s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(29,191,115,.4); }
+    50% { box-shadow: 0 0 0 6px rgba(29,191,115,0); }
+  }
+
+  .hero-greeting {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    animation: fadeUp .7s .08s ease both;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(52px,7vw,96px);
+    line-height: .95;
+    font-weight: 900;
+    letter-spacing: -.02em;
+    margin-bottom: 28px;
+    animation: fadeUp .7s .16s ease both;
+  }
+
+  .hero-name .highlight {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+    animation: fadeUp .7s .24s ease both;
+  }
+
+  .role-pill {
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    transition: border-color .2s, color .2s, background .2s, transform .2s;
+  }
+
+  .role-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(29,191,115,.05);
+    transform: translateY(-2px);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.75;
+    margin-bottom: 42px;
+    animation: fadeUp .7s .32s ease both;
+  }
+
+  .hero-desc em {
+    color: var(--text);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp .7s .4s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #0d0d0d;
+    padding: 15px 30px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: background .2s, transform .2s, box-shadow .2s;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 34px rgba(29,191,115,.2);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 15px 30px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: border-color .2s, transform .2s, color .2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .hero-card {
+    position: relative;
+    animation: fadeUp .8s .25s ease both, heroFloat 5s ease-in-out infinite;
+  }
+
+  @keyframes heroFloat {
+    0%,100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid rgba(29,191,115,.22);
+    border-radius: 6px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    inset: -22px;
+    background: radial-gradient(circle, rgba(29,191,115,.16), transparent 68%);
+    z-index: -1;
+    animation: imageGlow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes imageGlow {
+    from {
+      opacity: .45;
+      transform: scale(.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  .hero-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 6px;
+    display: block;
+    filter: grayscale(10%);
+    transition: filter .3s, transform .3s;
+  }
+
+  .hero-img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.01);
+  }
+
+  .hero-card-badge {
+    position: absolute;
+    bottom: 20px;
+    left: -20px;
+    z-index: 2;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    animation: badgePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes badgePulse {
+    0%,100% {
+      transform: translateY(0);
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    }
+    50% {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 38px rgba(29,191,115,.16);
+    }
+  }
+
+  .card-badge-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(29,191,115,.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .card-badge-text span {
+    display: block;
+  }
+
+  .card-badge-text .cb-num {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .card-badge-text .cb-lbl {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat {
+    background: var(--bg);
+    padding: 44px 36px;
+    transition: background .2s, transform .2s;
+  }
+
+  .stat:hover {
+    background: var(--bg2);
+    transform: translateY(-4px);
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 58px;
+    line-height: 1;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+
+  section {
+    padding: 110px 52px;
+  }
+
+  .sec-header {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 64px;
+  }
+
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: .12em;
+  }
+
+  .sec-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px,5vw,60px);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .sec-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-left: auto;
+  }
+
+  #services {
+    background: var(--bg);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .svc-card {
+    background: var(--bg);
+    padding: 52px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: background .2s, transform .25s, box-shadow .25s;
+  }
+
+  .svc-card:hover {
+    background: var(--bg2);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 42px rgba(0,0,0,.25);
+  }
+
+  .svc-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+  }
+
+  .svc-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .svc-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(29,191,115,.08);
+    border: 1px solid rgba(29,191,115,.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 28px;
+    transition: transform .25s, background .25s;
+  }
+
+  .svc-card:hover .svc-icon {
+    transform: rotate(-5deg) scale(1.08);
+    background: rgba(29,191,115,.14);
+  }
+
+  .svc-title {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .svc-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .svc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .svc-tag {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  #skills {
+    background: var(--bg2);
+  }
+
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-chip {
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    transition: border-color .2s, color .2s, background .2s, transform .2s;
+    cursor: default;
+  }
+
+  .skill-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(29,191,115,.05);
+    transform: translateY(-3px);
+  }
+
+  #why {
+    background: var(--bg);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .why-card {
+    background: var(--bg);
+    padding: 48px 40px;
+    transition: background .2s, transform .25s, box-shadow .25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-card:hover {
+    background: var(--bg2);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 42px rgba(0,0,0,.25);
+  }
+
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s;
+  }
+
+  .why-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .why-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 22px;
+    transition: transform .25s, border-color .25s;
+  }
+
+  .why-card:hover .why-icon {
+    transform: scale(1.08);
+    border-color: var(--accent);
+  }
+
+  .why-title {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .why-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  #projects {
+    background: var(--bg2);
+  }
+
+  .proj-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .view-all {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+
+  .view-all:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .proj-card {
+    background: var(--bg2);
+    padding: 44px 38px;
+    position: relative;
+    overflow: hidden;
+    transition: background .2s, transform .25s, box-shadow .25s;
+    cursor: pointer;
+  }
+
+  .proj-card:hover {
+    background: var(--bg3);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 42px rgba(0,0,0,.25);
+  }
+
+  .proj-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .1em;
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  .proj-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    transition: color .2s;
+  }
+
+  .proj-card:hover .proj-title {
+    color: var(--accent);
+  }
+
+  .proj-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .proj-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .proj-tag {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .proj-arrow {
+    position: absolute;
+    bottom: 38px;
+    right: 38px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 13px;
+    transition: border-color .2s, color .2s, background .2s, transform .2s;
+  }
+
+  .proj-card:hover .proj-arrow {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(29,191,115,.08);
+    transform: rotate(45deg);
+  }
+
+  #testimonials {
+    background: var(--bg2);
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .testi-card {
+    background: var(--bg2);
+    padding: 44px 38px;
+    transition: background .2s, transform .25s, box-shadow .25s;
+  }
+
+  .testi-card:hover {
+    background: var(--bg3);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 42px rgba(0,0,0,.25);
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 14px;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+  }
+
+  .testi-quote {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testi-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(29,191,115,.12);
+    border: 1px solid rgba(29,191,115,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .testi-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .testi-role {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  #cta {
+    background: var(--bg2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cta::before {
+    content: 'HIRE ME';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: var(--font-display);
+    font-size: clamp(80px,16vw,180px);
+    color: rgba(255,255,255,.02);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: .1em;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(38px,5.5vw,72px);
+    line-height: 1;
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .cta-title span {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .cta-desc {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 42px;
+    font-weight: 300;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  footer {
+    padding: 40px 52px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+
+  footer a:hover {
+    color: var(--accent);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .75s ease, transform .75s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+  }
+
+  @media(max-width: 900px) {
+    body {
+      cursor: auto;
+    }
+
+    .cursor,
+    .cursor-ring {
+      display: none;
+    }
+
+    nav {
+      padding: 18px 24px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-logo-name {
+      font-size: 20px;
+    }
+
+    .nav-logo-tag {
+      font-size: 10px;
+    }
+
+    .sticky-work-pill,
+    .sticky-menu-pill {
+      top: 12px;
+      max-width: calc(100% - 22px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.34);
+    }
+
+    .sticky-work-pill {
+      min-width: auto;
+      width: auto;
+      padding: 8px 14px 8px 8px;
+      gap: 9px;
+    }
+
+    .sticky-work-pill img,
+    .sticky-menu-pill img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .sticky-work-pill span {
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      box-shadow: 0 0 0 4px rgba(22,214,111,.12);
+    }
+
+    .sticky-menu-pill {
+      display: flex;
+      gap: 10px;
+      padding: 8px 8px 8px 8px;
+      width: auto;
+    }
+
+    .sticky-menu-links {
+      gap: 10px;
+    }
+
+    .sticky-menu-links a {
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .sticky-menu-links a:nth-child(4) {
+      display: none;
+    }
+
+    .sticky-hire {
+      font-size: 12px !important;
+      padding: 9px 12px;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 130px 24px 60px;
+    }
+
+    .hero-card {
+      max-width: 380px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .stats {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    section {
+      padding: 70px 24px;
+    }
+
+    .services-grid,
+    .why-grid,
+    .projects-grid,
+    .testi-grid {
+      grid-template-columns: 1fr;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 14px;
+      text-align: center;
+      padding: 30px 24px;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  @media(max-width: 420px) {
+    .sticky-menu-links {
+      gap: 8px;
+    }
+
+    .sticky-menu-links a {
+      font-size: 12px;
+    }
+
+    .sticky-menu-pill img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .sticky-hire {
+      padding: 8px 10px;
+      font-size: 11px !important;
+    }
+  }
+
+  @media(max-width: 1150px) and (min-width: 901px) {
+    nav {
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+
+    .nav-links {
+      gap: 26px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+    }
+
+    .sticky-menu-links {
+      gap: 18px;
+    }
+
+    .sticky-menu-links a {
+      font-size: 17px;
+    }
+
+    .sticky-hire {
+      padding: 12px 22px;
+      font-size: 14px !important;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="bg-orb bg-orb--one"></div>
+<div class="bg-orb bg-orb--two"></div>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<a href="https://www.fiverr.com/szkallol" target="_blank" class="sticky-work-pill" id="stickyWorkPill">
+  <img src="https://smoggy-scarlet-zpgz9axxvy.edgeone.app/Shafayet%20Zamil.png" alt="Shafayet Zamil">
+  <span>Available for work</span>
+  <i class="status-dot"></i>
+</a>
+
+<div class="sticky-menu-pill" id="stickyMenuPill">
+  <a href="#">
+    <img src="https://smoggy-scarlet-zpgz9axxvy.edgeone.app/Shafayet%20Zamil.png" alt="Shafayet Zamil">
+  </a>
+
+  <div class="sticky-menu-links">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="https://www.fiverr.com/szkallol" target="_blank" class="sticky-hire">Hire</a>
+  </div>
+</div>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-name">Shafayet Zamil</span>
+    <span class="nav-logo-tag">Shopify & WordPress Expert</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#cta">Contact</a></li>
+    <li><a href="https://www.fiverr.com/szkallol" target="_blank" class="nav-cta">Hire on Fiverr</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">⚡ Level 2 Fiverr Seller</div>
+    <p class="hero-greeting">Hello, I'm</p>
+    <h1 class="hero-name">Shafayet<br><span class="highlight">Zamil</span></h1>
+
+    <div class="hero-roles">
+      <span class="role-pill">Shopify Expert</span>
+      <span class="role-pill">WordPress Expert</span>
+      <span class="role-pill">Elementor Pro</span>
+      <span class="role-pill">Theme Customization</span>
+    </div>
+
+    <p class="hero-desc">
+      Specializing in <em>theme customization, Elementor design,</em> and <em>high-converting pages</em> that drive real results — stunning landing pages, home pages, and product pages that boost engagement and sales.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://www.fiverr.com/szkallol" target="_blank" class="btn-primary">Hire Me on Fiverr →</a>
+      <a href="#projects" class="btn-outline">View Projects</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <img
+      src="https://smoggy-scarlet-zpgz9axxvy.edgeone.app/Shafayet%20Zamil.png"
+      alt="Shafayet Zamil"
+      class="hero-img"
+      loading="eager"
+      decoding="async"
+      referrerpolicy="no-referrer"
+    >
+
+    <div class="hero-card-badge">
+      <div class="card-badge-icon">🏆</div>
+      <div class="card-badge-text">
+        <span class="cb-num">Level 2</span>
+        <span class="cb-lbl">Fiverr Seller</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat reveal">
+    <span class="stat-num" data-count="362">0</span>
+    <span class="stat-label">Projects Delivered</span>
+  </div>
+  <div class="stat reveal">
+    <span class="stat-num" data-count="166">0</span>
+    <span class="stat-label">Happy Clients</span>
+  </div>
+  <div class="stat reveal">
+    <span class="stat-num" data-count="5">0</span>
+    <span class="stat-label">Years Experience</span>
+  </div>
+  <div class="stat reveal">
+    <span class="stat-num">Level 2</span>
+    <span class="stat-label">Fiverr Seller</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="sec-header reveal">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">Services</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon">🛍️</div>
+      <h3 class="svc-title">Shopify Store Design</h3>
+      <p class="svc-desc">Custom Shopify theme development and revamps that convert visitors into buyers. Pixel-perfect, mobile-first, and lightning fast.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Theme Customization</span>
+        <span class="svc-tag">Liquid</span>
+        <span class="svc-tag">OS 2.0</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-icon">🌐</div>
+      <h3 class="svc-title">WordPress Development</h3>
+      <p class="svc-desc">Complete WordPress website transformations — from blank slate to stunning, fully functional site with custom layouts and integrations.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Elementor Pro</span>
+        <span class="svc-tag">WooCommerce</span>
+        <span class="svc-tag">Theme Dev</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-icon">🚀</div>
+      <h3 class="svc-title">High-Converting Pages</h3>
+      <p class="svc-desc">Landing pages, home pages, and product pages strategically designed to drive engagement, reduce bounce, and increase conversions.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Landing Pages</span>
+        <span class="svc-tag">Product Pages</span>
+        <span class="svc-tag">CRO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-header reveal">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Skills & Tools</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="skills-wrap reveal">
+    <span class="skill-chip">Shopify</span>
+    <span class="skill-chip">Liquid</span>
+    <span class="skill-chip">Shopify OS 2.0</span>
+    <span class="skill-chip">WordPress</span>
+    <span class="skill-chip">Elementor Pro</span>
+    <span class="skill-chip">WooCommerce</span>
+    <span class="skill-chip">Theme Customization</span>
+    <span class="skill-chip">Shopify Email Flow</span>
+    <span class="skill-chip">Email Template Design</span>
+  </div>
+</section>
+
+<section id="why">
+  <div class="sec-header reveal">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">Why Work With Me</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">⚡</div>
+      <h3 class="why-title">Fast Turnaround</h3>
+      <p class="why-desc">Most projects delivered within 24–72 hours without compromising quality. I respect your deadlines as much as my own.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon">✓</div>
+      <h3 class="why-title">Results-Driven Design</h3>
+      <p class="why-desc">Every page I design is built with conversion in mind — not just aesthetics. Beauty that actually sells.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon">∞</div>
+      <h3 class="why-title">Unlimited Revisions</h3>
+      <p class="why-desc">I work until you're 100% satisfied. Your vision is the benchmark, and I won't stop until we hit it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="proj-header reveal">
+    <div class="sec-header" style="margin:0;flex:1">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Featured Projects</h2>
+      <div class="sec-line"></div>
+    </div>
+    <a href="#" class="view-all" style="margin-left:28px;white-space:nowrap">View all →</a>
+  </div>
+
+  <div class="projects-grid">
+    <div class="proj-card reveal">
+      <span class="proj-num">001</span>
+      <h3 class="proj-title">Fashion Shopify Store Revamp</h3>
+      <p class="proj-desc">Full Shopify theme customization for a fashion brand — custom sections, animated hero, optimized product pages, and mobile-first design resulting in a 40% bounce reduction.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Shopify</span>
+        <span class="proj-tag">Liquid</span>
+        <span class="proj-tag">OS 2.0</span>
+      </div>
+      <div class="proj-arrow">→</div>
+    </div>
+
+    <div class="proj-card reveal">
+      <span class="proj-num">002</span>
+      <h3 class="proj-title">WordPress Business Landing Page</h3>
+      <p class="proj-desc">Built a high-converting WordPress landing page using Elementor Pro for a digital marketing agency — with custom animations, lead forms, and full mobile responsiveness.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">WordPress</span>
+        <span class="proj-tag">Elementor Pro</span>
+        <span class="proj-tag">Landing Page</span>
+      </div>
+      <div class="proj-arrow">→</div>
+    </div>
+
+    <div class="proj-card reveal">
+      <span class="proj-num">003</span>
+      <h3 class="proj-title">Shopify Email Automation</h3>
+      <p class="proj-desc">Created email flow and email template design for digital product stores, helping customers receive resources clearly and automatically.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Shopify</span>
+        <span class="proj-tag">Email Flow</span>
+        <span class="proj-tag">Template Design</span>
+      </div>
+      <div class="proj-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="sec-header reveal">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">Client Reviews</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"Great experience working with this seller. Clear communication, quick responses, and a smooth process from start to finish. Highly recommended."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">B</div>
+        <div>
+          <div class="testi-name">biz2biz4sure</div>
+          <div class="testi-role">Repeat Client · United States</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"Shafayet understood the vision behind my digital product store and delivered structure, clarity, email automation, and a better customer experience."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">T</div>
+        <div>
+          <div class="testi-name">tawana_hampton</div>
+          <div class="testi-role">Digital Store Owner · United States</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"Shafayet is the best coder for websites. He knows how to install and code assets that help a website convert. Highly recommended."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">E</div>
+        <div>
+          <div class="testi-name">emillieherft</div>
+          <div class="testi-role">Website Client · Australia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">Let's collaborate</p>
+    <h2 class="cta-title reveal">Ready to build something <span>exceptional?</span></h2>
+    <p class="cta-desc reveal">Whether you need a Shopify store revamp, WordPress website transformation, or email flow setup — I'm here to bring your vision to life with precision and creativity.</p>
+    <a href="https://www.fiverr.com/szkallol" target="_blank" class="btn-primary reveal">View Fiverr Profile →</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Shafayet Zamil. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="https://www.fiverr.com/szkallol" target="_blank">Fiverr Profile</a>
+  </div>
+</footer>
+
+<script>
+  const cur = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  const stickyWorkPill = document.getElementById('stickyWorkPill');
+  const stickyMenuPill = document.getElementById('stickyMenuPill');
+  const nav = document.getElementById('nav');
+
+  let mx = 0;
+  let my = 0;
+  let rx = 0;
+  let ry = 0;
+  let lastScrollY = window.scrollY;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+  });
+
+  (function loop() {
+    rx += (mx - rx) * .12;
+    ry += (my - ry) * .12;
+
+    if (cur && ring) {
+      cur.style.left = mx - 4 + 'px';
+      cur.style.top = my - 4 + 'px';
+      ring.style.left = rx - 16 + 'px';
+      ring.style.top = ry - 16 + 'px';
+    }
+
+    requestAnimationFrame(loop);
+  })();
+
+  function handleScrollMenu() {
+    const currentScroll = window.scrollY;
+    const isScrolled = currentScroll > 90;
+    const scrollingDown = currentScroll > lastScrollY;
+
+    if (nav) {
+      nav.classList.toggle('menu-hidden', isScrolled);
+    }
+
+    if (!isScrolled) {
+      stickyWorkPill?.classList.remove('is-visible');
+      stickyMenuPill?.classList.remove('is-visible');
+    } else if (scrollingDown) {
+      stickyWorkPill?.classList.add('is-visible');
+      stickyMenuPill?.classList.remove('is-visible');
+    } else {
+      stickyWorkPill?.classList.remove('is-visible');
+      stickyMenuPill?.classList.add('is-visible');
+    }
+
+    lastScrollY = Math.max(currentScroll, 0);
+  }
+
+  window.addEventListener('scroll', handleScrollMenu);
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 90);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: .1 });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function countUp(el) {
+    const target = +el.dataset.count;
+    const dur = 1400;
+    const start = performance.now();
+
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(ease * target) + '+';
+
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  const cObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.dataset.count) {
+        countUp(e.target);
+        cObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: .5 });
+
+  document.querySelectorAll('[data-count]').forEach(el => cObs.observe(el));
+</script>
+
+</body>
+</html>
